@@ -5,11 +5,14 @@ import PlanetsContext from './PlanetsContext';
 function PlanetsProvider({ children }) {
   const [planets, setPlanets] = useState([]);
   const [titleTable, setTitleTable] = useState([]);
+  const [filterByName, setFilterByName] = useState('');
   const contextValue = {
     planets,
     setPlanets,
     titleTable,
     setTitleTable,
+    filterByName,
+    setFilterByName,
   };
 
   return (
@@ -20,7 +23,7 @@ function PlanetsProvider({ children }) {
 }
 
 PlanetsProvider.propTypes = {
-  children: PropTypes.shape().isRequired,
+  children: PropTypes.arrayOf().isRequired,
 };
 
 export default PlanetsProvider;
