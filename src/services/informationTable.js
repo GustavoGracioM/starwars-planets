@@ -14,15 +14,7 @@ export const titleTable = [
   'URL',
 ];
 
-export const option1 = [
-  'population',
-  'orbital_period',
-  'diameter',
-  'rotation_period',
-  'surface_water',
-];
-
-export const option2 = [
+export const option = [
   'maior que',
   'menor que',
   'igual a',

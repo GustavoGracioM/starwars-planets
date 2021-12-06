@@ -7,6 +7,12 @@ function PlanetsProvider({ children }) {
   const [titleTable, setTitleTable] = useState([]);
   const [filterByName, setFilterByName] = useState('');
   const [isFilter, setIsFilter] = useState(false);
+  const [columns, setColumns] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water']);
   const [filterByNumericValue, setFilterByNumericValue] = useState({
     column: 'population', comparison: 'maior que', value: 0,
   });
@@ -20,6 +26,8 @@ function PlanetsProvider({ children }) {
     setFilterByName,
     isFilter,
     setIsFilter,
+    columns,
+    setColumns,
     filterByNumericValue,
     setFilterByNumericValue,
     filterByNumericValues,

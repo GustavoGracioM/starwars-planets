@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
-import { option1, option2 } from '../services/informationTable';
+import { option } from '../services/informationTable';
 
 function FilterPlanets() {
   const {
@@ -10,6 +10,8 @@ function FilterPlanets() {
     setFilterByNumericValue,
     setFilterByNumericValues,
     setIsFilter,
+    columns,
+    setColumns,
   } = useContext(PlanetsContext);
 
   function handleChange({ target }) {
@@ -22,18 +24,18 @@ function FilterPlanets() {
     event.preventDefault();
     setFilterByNumericValues([...filterByNumericValues, filterByNumericValue]);
     setIsFilter(true);
+    setColumns(columns.filter((c) => c !== filterByNumericValue.column));
   }
 
   return (
     <form onChange={ handleChange } onSubmit={ handleSubmit }>
       <select data-testid="column-filter" name="column" value={ column }>
-        {option1.map((option) => (
-          <option key={ option }>{option}</option>
-        ))}
+        {!columns.length < 1
+        && columns.map((op) => (<option key={ op }>{op}</option>))}
       </select>
       <select data-testid="comparison-filter" name="comparison" value={ comparison }>
-        {option2.map((option) => (
-          <option key={ option }>{option}</option>
+        {option.map((op) => (
+          <option key={ op }>{op}</option>
         ))}
       </select>
       <input type="number" value={ value } name="value" data-testid="value-filter" />
