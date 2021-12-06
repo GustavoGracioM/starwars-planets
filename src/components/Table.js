@@ -1,10 +1,27 @@
 import React, { useContext, useEffect } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
+import { titleTable } from '../services/informationTable';
 import fetchPlanets from '../services/fecthPlanets';
-import titleTable from '../services/informationTable';
 
 function Table() {
-  const { planets, setPlanets, filterByName } = useContext(PlanetsContext);
+  const {
+    planets,
+    setPlanets,
+    filterByName,
+    filterByNumericValues,
+  } = useContext(PlanetsContext);
+
+  function validationFilter(planet) {
+    const x = filterByNumericValues.every((t) => {
+      if (t.comparison === 'maior que') return parseFloat(planet[t.column]) > t.value;
+      if (t.comparison === 'menor que') return parseFloat(planet[t.column]) < t.value;
+      if (t.comparison === 'igual a') {
+        return parseFloat(t.value) === parseFloat(planet[t.column]);
+      }
+      return false;
+    });
+    return x;
+  }
 
   useEffect(() => {
     fetchPlanets().then((response) => setPlanets(response));
@@ -27,6 +44,11 @@ function Table() {
             .filter((planet) => (filterByName
               ? planet.name.includes(filterByName)
               : true))
+            .filter((planet) => (
+              filterByNumericValues.length > 0
+                ? validationFilter(planet)
+                : true
+            ))
             .map((planet) => (
               <tr key={ planet.name }>
                 <td>{planet.name}</td>

@@ -1,4 +1,4 @@
-const titleTable = [
+export const titleTable = [
   'Name',
   'Rotation Period',
   'Orbital Period',
@@ -14,4 +14,16 @@ const titleTable = [
   'URL',
 ];
 
-export default titleTable;
+export const option1 = [
+  'population',
+  'orbital_period',
+  'diameter',
+  'rotation_period',
+  'surface_water',
+];
+
+export const option2 = [
+  'maior que',
+  'menor que',
+  'igual a',
+];
