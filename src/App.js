@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import FilterOrder from './components/FilterOrder';
 import FilterPlanets from './components/FilterPlanets';
 import FilterSelects from './components/FilterSelects';
 import SearchPlanets from './components/SearchPlanets';
@@ -11,6 +12,7 @@ function App() {
     <PlanetsProvider>
       <SearchPlanets />
       <FilterPlanets />
+      <FilterOrder />
       <FilterSelects />
       <Table />
     </PlanetsProvider>

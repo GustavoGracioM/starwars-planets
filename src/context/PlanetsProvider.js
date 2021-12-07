@@ -7,6 +7,8 @@ function PlanetsProvider({ children }) {
   const [titleTable, setTitleTable] = useState([]);
   const [filterByName, setFilterByName] = useState('');
   const [isFilter, setIsFilter] = useState(false);
+  const [sortColumn, setSortColumn] = useState({});
+  const [order, setOrder] = useState({ sort: 'ASC', column: 'population' });
   const [columns, setColumns] = useState([
     'population',
     'orbital_period',
@@ -26,6 +28,10 @@ function PlanetsProvider({ children }) {
     setFilterByName,
     isFilter,
     setIsFilter,
+    sortColumn,
+    setSortColumn,
+    order,
+    setOrder,
     columns,
     setColumns,
     filterByNumericValue,

@@ -9,6 +9,7 @@ function Table() {
     setPlanets,
     filterByName,
     filterByNumericValues,
+    order,
   } = useContext(PlanetsContext);
 
   function validationFilter(planet) {
@@ -21,6 +22,11 @@ function Table() {
       return false;
     });
     return x;
+  }
+
+  function orderFilter(a, b) {
+    if (order.sort === 'ASC') return a[order.column] - b[order.column];
+    if (order.sort === 'DESC') return b[order.column] - a[order.column];
   }
 
   useEffect(() => {
@@ -41,6 +47,7 @@ function Table() {
       <tbody>
         {
           planets
+            .sort(orderFilter)
             .filter((planet) => (filterByName
               ? planet.name.includes(filterByName)
               : true))
@@ -51,7 +58,7 @@ function Table() {
             ))
             .map((planet) => (
               <tr key={ planet.name }>
-                <td>{planet.name}</td>
+                <td data-testid="planet-name">{planet.name}</td>
                 <td>{planet.rotation_period}</td>
                 <td>{planet.orbital_period}</td>
                 <td>{planet.diameter}</td>
