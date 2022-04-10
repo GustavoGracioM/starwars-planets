@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import PlanetsContext from '../context/PlanetsContext';
 import { option } from '../services/informationTable';
 
@@ -28,19 +29,41 @@ function FilterPlanets() {
   }
 
   return (
-    <form onChange={ handleChange } onSubmit={ handleSubmit }>
-      <select data-testid="column-filter" name="column" value={ column }>
+    <Form
+      onChange={ handleChange }
+      onSubmit={ handleSubmit }
+      className=" d-flex align-items-center"
+    >
+      <Form.Select
+        name="column"
+        value={ column }
+        className="m-3"
+      >
         {!columns.length < 1
         && columns.map((op) => (<option key={ op }>{op}</option>))}
-      </select>
-      <select data-testid="comparison-filter" name="comparison" value={ comparison }>
+      </Form.Select>
+      <Form.Select
+        name="comparison"
+        value={ comparison }
+        className="m-3"
+      >
         {option.map((op) => (
           <option key={ op }>{op}</option>
         ))}
-      </select>
-      <input type="number" value={ value } name="value" data-testid="value-filter" />
-      <button type="submit" data-testid="button-filter">Filtrar</button>
-    </form>
+      </Form.Select>
+      <Form.Control
+        type="number"
+        value={ value }
+        name="value"
+        className="m-3"
+      />
+      <Button
+        type="submit"
+        className="m-3 btn-warning btn-lg"
+      >
+        Filtrar
+      </Button>
+    </Form>
   );
 }
 

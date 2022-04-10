@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import PlanetsContext from '../context/PlanetsContext';
 
 const filter = [
@@ -23,34 +24,45 @@ function FilterOrder() {
   }
 
   return (
-    <form onChange={ handleChange } onSubmit={ handleSumbit }>
-      <label htmlFor="ASC">
-        Ascendente
-        <input
-          id="ASC"
-          type="radio"
-          name="sort"
-          value="ASC"
-          data-testid="column-sort-input-asc"
-        />
-      </label>
-      <label htmlFor="DESC">
-        Descendente
-        <input
-          id="DESC"
-          type="radio"
-          name="sort"
-          value="DESC"
-          data-testid="column-sort-input-desc"
-        />
-      </label>
-      <select data-testid="column-sort" name="column">
+    <Form
+      onChange={ handleChange }
+      onSubmit={ handleSumbit }
+      className="d-flex align-items-center"
+    >
+      <div className="m-3">
+        <Form.Label htmlFor="ASC" className="d-flex me-3">
+          <Form.Check
+            id="ASC"
+            type="radio"
+            name="sort"
+            value="ASC"
+            className="me-2"
+          />
+          Ascendente
+        </Form.Label>
+        <Form.Label htmlFor="DESC" className="d-flex">
+          <Form.Check
+            id="DESC"
+            type="radio"
+            name="sort"
+            value="DESC"
+            className="me-2"
+          />
+          Descendente
+        </Form.Label>
+      </div>
+      <Form.Select name="column" className="m-3">
         {filter.map((x) => (
           <option key={ x } value={ x }>{x}</option>
         ))}
-      </select>
-      <button type="submit" data-testid="column-sort-button">Ordenar</button>
-    </form>
+      </Form.Select>
+      <Button
+        type="submit"
+        className="btn-warning btn-lg"
+      >
+        Ordenar
+      </Button>
+    </Form>
   );
 }
 

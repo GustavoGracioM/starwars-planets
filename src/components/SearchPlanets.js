@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Container, Form } from 'react-bootstrap';
 import PlanetsContext from '../context/PlanetsContext';
 
 function SearchPlanets() {
@@ -9,13 +10,16 @@ function SearchPlanets() {
   }
 
   return (
-    <input
-      type="text"
-      data-testid="name-filter"
-      value={ filterByName }
-      name="searchPlanets"
-      onChange={ handleChanges }
-    />
+    <Container className="mb-3">
+      <h1 className="text-center mb-4 mt-5">Planets</h1>
+      <Form.Control
+        type="text"
+        value={ filterByName }
+        name="searchPlanets"
+        onChange={ handleChanges }
+        className="input-search"
+      />
+    </Container>
   );
 }
 

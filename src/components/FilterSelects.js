@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import PlanetsContext from '../context/PlanetsContext';
 
 function FilterSelects() {
@@ -17,15 +18,15 @@ function FilterSelects() {
   return (
     !filterByNumericValues.length < 1 && filterByNumericValues.map((value) => (
       <div key={ value.column } data-testid="filter">
-        <span>{value.column}</span>
-        <span>{value.comparison}</span>
-        <span>{value.value}</span>
-        <button
+        <span>
+          {`${value.column} ${value.comparison} ${value.value} `}
+        </span>
+        <Button
           type="button"
           onClick={ () => deletedFilter(value) }
         >
           X
-        </button>
+        </Button>
       </div>
     ))
   );

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import TableB from 'react-bootstrap/Table';
 import PlanetsContext from '../context/PlanetsContext';
 import { titleTable } from '../services/informationTable';
 import fetchPlanets from '../services/fecthPlanets';
@@ -34,7 +35,7 @@ function Table() {
   }, [setPlanets]);
 
   return (
-    <table>
+    <TableB variant="dark" responsive>
       <thead>
         <tr>
           {
@@ -58,7 +59,7 @@ function Table() {
             ))
             .map((planet) => (
               <tr key={ planet.name }>
-                <td data-testid="planet-name">{planet.name}</td>
+                <td>{planet.name}</td>
                 <td>{planet.rotation_period}</td>
                 <td>{planet.orbital_period}</td>
                 <td>{planet.diameter}</td>
@@ -75,7 +76,7 @@ function Table() {
             ))
         }
       </tbody>
-    </table>
+    </TableB>
   );
 }
 
