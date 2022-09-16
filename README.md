@@ -1,4 +1,4 @@
-# Starr Wars Planets
+# Star Wars Planets
 
 
 
@@ -16,7 +16,6 @@ Projeto Star Wars Planets é do módulo de front-end do curso de desenvolvimenen
 * HTML
 * CSS
 * Bootstrap
-* Consumir API 
 
 ### Instrução de instalação
 
