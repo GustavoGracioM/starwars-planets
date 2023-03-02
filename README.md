@@ -2,7 +2,7 @@
 
 
 
-Projeto Star Wars Planets é do módulo de front-end do curso de desenvolvimento web da <a href="https://www.betrybe.com/">Trybe</a>. Objetivo do projeto era desenvolver uma aplicação para listar todos os planetas do universo de Star Wars, com diversas formas para filtrar e ordenar, utilizando React Hooks.
+Star Wars Planets é um projeto do módulo de front-end do curso de desenvolvimento web da <a href="https://www.betrybe.com/">Trybe</a>. Objetivo do projeto era desenvolver uma aplicação para listar todos os planetas do universo de Star Wars, com diversas formas para filtrar e ordenar, utilizando React Hooks.
 
 ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![image](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
